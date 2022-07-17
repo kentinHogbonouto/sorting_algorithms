@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "sort.h"
+#include "print_array.c"
 
 /**
 *bubble_sort - Function that sort an array element using bubble sort algorithm
@@ -21,7 +22,6 @@ if (array[i] > array[i + 1])
 temp = array[i];
 array[i] = array[i + 1];
 array[i + 1] = temp;
-print_array(array, size);
 }
 }
 }
