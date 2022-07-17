@@ -1,6 +1,8 @@
 #ifndef SORT_H
 #define SORT_H
 
+#include <stdlib.h>
+
 /**
 *File name: sort.h
 *
