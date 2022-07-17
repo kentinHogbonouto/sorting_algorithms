@@ -3,6 +3,9 @@
 /**
 *bubble_sort - Function that sort an array element using bubble sort algorithm
 *
+*@array: The array which contain the list of element that can be sort
+*@size_t: Size of array
+*
 *return: always return a new array with order list
 */
 
