@@ -1,4 +1,5 @@
 #include "sort.h"
+#include <stddef.h>
 
 /**
 *bubble_sort - Function that sort an array element using bubble sort algorithm
