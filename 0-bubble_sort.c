@@ -1,19 +1,27 @@
 #include <stdio.h>
+#include "sort.h"
+#include "print_array.c"
 
 /**
 *bubble_sort - Function that sort an array element using bubble sort algorithm
 *
-*return: always return a new array with order list 
+*@array: The array which contain the list of element that can be sort
+*@size: Size of array
+*
+*return: always return a new array with order list
 */
 
 void bubble_sort(int *array, size_t size)
 {
 int temp;
-for(int i = 0; i < array.lenght; i++){
-if(array[i] > *array[i + 1]){
-temp = *array[i + 1];
-*array[i + 1] = *array[i];
-*array[i] = temp;
+size_t i , len = size;
+for (i = 0; i < len - 1; i++)
+{
+if (array[i] > array[i + 1])
+{
+temp = array[i];
+array[i] = array[i + 1];
+array[i + 1] = temp;
 }
 }
 }
