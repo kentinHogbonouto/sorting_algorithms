@@ -1,6 +1,4 @@
-#include <stdio.h>
 #include "sort.h"
-#include "print_array.c"
 
 /**
 *bubble_sort - Function that sort an array element using bubble sort algorithm
@@ -14,14 +12,18 @@
 void bubble_sort(int *array, size_t size)
 {
 int temp;
-size_t i , len = size;
-for (i = 0; i < len - 1; i++)
+size_t i , j;
+if (array == NULL)
+return;
+for (i = 0; i < size - 1; i++)
 {
-if (array[i] > array[i + 1])
+for (j = 0; j < size - i - 1; j++)
+if (array[j] > array[j + 1])
 {
-temp = array[i];
-array[i] = array[i + 1];
-array[i + 1] = temp;
+temp = array[j];
+array[j] = array[j + 1];
+array[j + 1] = temp;
+print_array(array, size);
 }
 }
 }
