@@ -12,7 +12,7 @@
 void bubble_sort(int *array, size_t size)
 {
 int temp;
-for (int i = 0; i < array.lenght; i++)
+for (int i = 0; i < len(array); i++)
 {
 if (array[i] > *array[i + 1])
 {
