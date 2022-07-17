@@ -132,3 +132,7 @@ Please use the “short” notation (don’t use constants). Example: O(nk) or O
 
 Tests
 Here is a quick tip to help you test your sorting algorithms with big sets of random integers: Random.org
+
+### Authors
+***Kentin Hogbonouto***
+***Mellanie Achieng***
