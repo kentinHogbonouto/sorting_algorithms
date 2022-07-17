@@ -15,11 +15,11 @@ int temp;
 size_t i , len = size;
 for (i = 0; i < len - 1; i++)
 {
-if (array[i] > *array[i + 1])
+if (array[i] > array[i + 1])
 {
-temp = *array[i];
-*array[i] = *array[i + 1];
-*array[i + 1] = temp;
+temp = array[i];
+array[i] = array[i + 1];
+array[i + 1] = temp;
 print_array(array, size);
 }
 }
