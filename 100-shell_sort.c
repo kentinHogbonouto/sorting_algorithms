@@ -47,7 +47,7 @@ void shell_sort(int *array, size_t size)
 	unsigned int interval = 1;
 
 	if (!array || size < 2)
-	       return;	
+		return;
 
 	while (interval < size / 3)
 		interval = interval * 3 + 1;
