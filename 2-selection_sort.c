@@ -34,10 +34,8 @@ for (i = 0; i < size; i++)
 {
 for (j = i + 1; j < size; j++)
 {
-if (array[min] > array[i])
-{
+if (array[min] > array[j])
 min = j;
-}
 }
 if (min != i)
 {
