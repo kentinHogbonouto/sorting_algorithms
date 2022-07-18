@@ -50,7 +50,7 @@ return (i);
 }
 
 /**
-*quick_sort_array - Function that sort array element using quick sort algorithms
+*quick_sort_array - Function that sort array
 *@arr: arr
 *@min: min
 *@last: last
