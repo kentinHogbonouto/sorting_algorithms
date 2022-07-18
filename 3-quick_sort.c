@@ -14,7 +14,7 @@ int tmp;
 
 tmp = *a;
 *a = *b;
-*b = *a;
+*b = tmp;
 }
 
 /**
