@@ -18,7 +18,7 @@ int tmp = *a;
 
 /**
 *_split - Split the array and takes the last element as pivot
-*@arr: Array 
+*@arr: Array
 *@min: First argument
 *@last: The last element
 *@size: Size
@@ -70,7 +70,7 @@ quick_sort_array(arr, min, (piv + 1), size);
 
 /**
 *quick_sort - Fucntion that sort array element using quick sort algorithm
-*@array: array of intger 
+*@array: array of intger
 *@size: size
 **/
 void quick_sort(int *array, size_t size)
