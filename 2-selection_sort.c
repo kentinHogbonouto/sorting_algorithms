@@ -30,14 +30,12 @@ unsigned int i, j, min;
 
 if (array == NULL || size < 2)
 return;
-
 for (i = 0; i < size; i++)
 {
-min = i;
+min = j;
 for (j = i + 1; j < size; j++)
 {
 if (array[min] > array[j])
-min = j;
 }
 if (min != i)
 {
@@ -45,5 +43,4 @@ _swap(&array[i], &array[min]);
 print_array(array, size);
 }
 }
-
 }
