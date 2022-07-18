@@ -1,7 +1,7 @@
 #include "sort.h"
 
 /**
- * swap - Function that swaps two values
+ * _swap - Function that swaps two values
  *
  * @a: Fisrt value
  * @b: Second value
@@ -46,10 +46,13 @@ void shell_sort(int *array, size_t size)
 {
 	unsigned int interval = 1;
 
+	if (!array || size < 2)
+	       return;	
+
 	while (interval < size / 3)
 		interval = interval * 3 + 1;
 
-	while (interval >= 1)
+	while (interval > 0)
 	{
 		interval_sort(array, size, interval);
 		interval = (interval - 1) / 3;
