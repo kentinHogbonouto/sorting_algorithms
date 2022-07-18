@@ -15,7 +15,7 @@ tmp = *a;
 }
 
 /**
-*select_sort - Function that sort array using selection algorithm
+*selection_sort - Function that sort array using selection algorithm
 *
 *@array: First argument
 *
