@@ -20,19 +20,19 @@ void _swap(int *a, int *b)
  * interval_sort - sort array with gaps
  * @array: array to be sorted
  * @size: size of array
- * @interval: interval size
+ * @n: interval size
  */
-void interval_sort(int *array, size_t size, unsigned int interval)
+void interval_sort(int *array, size_t size, unsigned int n)
 {
 	size_t i, j;
 
-	for (i = interval; i < size; i++)
+	for (i = n; i < size; i++)
 	{
 		j = i;
-		while (j >= interval && array[j] < array[j - interval])
+		while (j >= n && array[j] < array[j - n])
 		{
-			_swap(array + j, array + j - interval);
-			j -= interval;
+			_swap(array + j, array + j - n);
+			j -= n;
 		}
 	}
 }
@@ -44,18 +44,18 @@ void interval_sort(int *array, size_t size, unsigned int interval)
  */
 void shell_sort(int *array, size_t size)
 {
-	unsigned int interval = 1;
-
+	unsigned int n = 0;
+	
 	if (!array || size < 2)
-	       return;	
+		return;
 
-	while (interval < size / 3)
-		interval = interval * 3 + 1;
+	while (n < size / 3)
+		n = n * 3 + 1;
 
-	while (interval > 0)
+	while (n > 0)
 	{
-		interval_sort(array, size, interval);
-		interval = (interval - 1) / 3;
+		interval_sort(array, size, n);
+		n = (n - 1) / 3;
 		print_array(array, size);
 	}
 }
