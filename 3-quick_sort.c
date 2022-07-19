@@ -40,7 +40,7 @@ _swap(&arr[i], &arr[j]);
 
 
 if (i != j)
-    print_array(arr, size);
+print_array(arr, size);
 
 i++;
 
