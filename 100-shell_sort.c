@@ -44,7 +44,7 @@ void interval_sort(int *array, size_t size, unsigned int n)
  */
 void shell_sort(int *array, size_t size)
 {
-	unsigned int n = 0;
+	unsigned int n = 1;
 	
 	if (!array || size < 2)
 		return;
