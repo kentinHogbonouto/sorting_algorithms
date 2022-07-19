@@ -1,68 +1,89 @@
 #include "sort.h"
 
 /**
-* partition - array partition
-* @array: array to sort
-* @first: first position
-* @last: last position
-* @size: array size
-* Return: int pivot index
-*/
-int partition(int *array, int first, int last, size_t size)
-{
-int i = first - 1, aux, j;
+* _swap - swap two numbers.
+* @a: integer
+* @b: integer
+**/
 
-for (j = first; j <= last - 1; j++)
+void _swap(int *a, int *b)
 {
-if (array[j] < array[last])
+int tmp;
+
+tmp = *a;
+*a = *b;
+*b = tmp;
+
+}
+
+/**
+* _split - Split the array and takes the last element as pivot
+* @arr: Array
+* @min: first element
+* @last: The last element
+* @size: size
+* Return: integer
+**/
+int _split(int *arr, int min, int last, size_t size)
 {
+int piv;
+int i = (min);
+int j;
+
+piv = arr[last];
+for (j = min; j < last; j++)
+{
+if (arr[j] <= piv)
+{
+
+_swap(&arr[i], &arr[j]);
+
+
+if (i != j)
+    print_array(arr, size);
+
 i++;
-if (i < j)
-{
-aux = array[i];
-array[i] = array[j];
-array[j] = aux;
-print_array(array, size);
+
 }
-}
-}
-if (array[i + 1] > array[last])
-{
-aux = array[i + 1];
-array[i + 1] = array[last];
-array[last] = aux;
-print_array(array, size);
 }
 
-return (i + 1);
+_swap(&arr[i], &arr[last]);
+if (i != j)
+print_array(arr, size);
+
+return (i);
 }
 
 /**
-* qs - sorts an array of integers recursively
-* @array: array to sort
-* @first: first position
-* @last: last position
-* @size: array size
+* quick_sort_array - quick_sort_array
+* @arr: arr
+* @min: min
+* @last: last
+* @size: size
+* Return: Nothing
 */
-void qs(int *array, int first, int last, size_t size)
+void quick_sort_array(int *arr, int min, int last, size_t size)
 {
-int pivot;
 
-if (first < last)
+int piv;
+
+if (min < last)
 {
-pivot = partition(array, first, last, size);
-qs(array, first, pivot - 1, size);
-qs(array, pivot + 1, last, size);
+piv = _split(arr, min, last, size);
+quick_sort_array(arr, min, (piv - 1), size);
+quick_sort_array(arr, (piv + 1), last, size);
 }
 }
 
 /**
-* quick_sort - sorts an array of integers using the Quick
-* sort algorithm in ascending order
-* @array: array to sort
-* @size: array size
-*/
+* quick_sort -Sort an array using quick_sort algorithm
+* @array: array
+* @size: size
+**/
 void quick_sort(int *array, size_t size)
 {
-qs(array, 0, size - 1, size);
+if (size < 2)
+return;
+
+quick_sort_array(array, 0, size - 1, size);
 }
