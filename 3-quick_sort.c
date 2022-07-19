@@ -1,89 +1,101 @@
 #include "sort.h"
 
 /**
-* _swap - swap two numbers.
-* @a: integer
-* @b: integer
-**/
+* quick_sort - Function that sorts an array based on
+* quick sort algorithm
+* @array: Array to be sorted
+* @size: Size of array
+* Return: 0
+*/
+void quick_sort(int *array, size_t size)
+{
+size_t pivot;
 
-void _swap(int *a, int *b)
+if (!array || size < 2)
+return;
+
+print_sort(array, size, 1);
+
+/* partition and get pivot index */
+pivot = partition(array, size);
+
+/* repeat for left of index */
+quick_sort(array, pivot);
+/* repeat for index and right */
+quick_sort(array + pivot, size - pivot);
+}
+
+/**
+* swap - Function that swaps two values
+*
+* @a: Fisrt value
+* @b: Second value
+* Return: 0
+*/
+void swap(int *a, int *b)
 {
 int tmp;
 
-tmp = *a;
-*a = *b;
-*b = tmp;
-
+tmp = *b;
+*b = *a;
+*a = tmp;
 }
 
 /**
-* _split - Split the array and takes the last element as pivot
-* @arr: Array
-* @min: first element
-* @last: The last element
-* @size: size
-* Return: integer
-**/
-int _split(int *arr, int min, int last, size_t size)
-{
-int piv;
-int i = (min);
-int j;
-
-piv = arr[last];
-for (j = min; j < last; j++)
-{
-if (arr[j] <= piv)
-{
-
-_swap(&arr[i], &arr[j]);
-
-
-if (i != j)
-print_array(arr, size);
-
-i++;
-
-}
-}
-
-_swap(&arr[i], &arr[last]);
-if (i != j)
-print_array(arr, size);
-
-return (i);
-}
-
-/**
-* quick_sort_array - quick_sort_array
-* @arr: arr
-* @min: min
-* @last: last
-* @size: size
-* Return: Nothing
+* partition - Function that sets the pivot for quick_sort
+*
+* @array: Array to partition
+* @size: Size of array
+* Return: (i + 1)
 */
-void quick_sort_array(int *arr, int min, int last, size_t size)
+size_t partition(int array[], size_t size)
 {
+int pivot;
+size_t i = -1;
+size_t j;
 
-int piv;
+if (!array || size < 2)
+return (0);
 
-if (min < last)
+pivot = array[size - 1];
+
+for (j = 0; j < size - 1; j++)
 {
-piv = _split(arr, min, last, size);
-quick_sort_array(arr, min, (piv - 1), size);
-quick_sort_array(arr, (piv + 1), last, size);
+if (array[j] <= pivot)
+{
+i++;
+if (i != j)
+{
+swap(&array[i], &array[j]);
+print_sort(array, size, 0);
 }
+}
+}
+if (i + 1 != size - 1)
+{
+swap(&array[i + 1], &array[size - 1]);
+print_sort(array, size, 0);
+}
+return (i + 1);
 }
 
 /**
-* quick_sort -Sort an array using quick_sort algorithm
-* @array: array
-* @size: size
-**/
-void quick_sort(int *array, size_t size)
+* print_sort - Function that prints as it should
+* @array: Array to be printed
+* @size: Size of array
+* @init: Should initialize array
+* Return: 0
+*/
+void print_sort(int array[], size_t size, int init)
 {
-if (size < 2)
-return;
+static int *p = (void *)0;
+static size_t s;
 
-quick_sort_array(array, 0, size - 1, size);
+if (!p && init)
+{
+p = array;
+s = size;
+}
+if (!init)
+print_array(p, s);
 }
